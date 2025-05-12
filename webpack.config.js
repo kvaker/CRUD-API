@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default {
-  entry: "./src/app.ts",
+  entry: "./cluster/cluster.ts",
   target: "node",
   mode: "development",
   module: {
