@@ -1,7 +1,7 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { v4 as uuidv4 } from 'uuid';
-import { db } from '../db/memoryDb';
-import { User } from '../models/user';
+import { db } from '../db/memoryDb.ts';
+import { User } from '../models/user.ts';
 import { validateUuid } from '../utils/validate';
 
 export const getAllUsers = async (req: IncomingMessage, res: ServerResponse) => {

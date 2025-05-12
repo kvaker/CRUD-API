@@ -1,7 +1,7 @@
 import cluster from 'node:cluster';
 import os from 'node:os';
 import http from 'node:http';
-import { createServer } from './app';
+import { createServer } from './app.ts';
 
 const numCPUs = os.availableParallelism ? os.availableParallelism() : os.cpus().length;
 const basePort = parseInt(process.env.PORT || '4000', 10);

@@ -1,4 +1,4 @@
-import { User } from '../models/user';
+import { User } from '../models/user.ts';
 
 const users = new Map<string, User>();
 

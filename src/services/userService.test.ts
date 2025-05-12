@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { server } from '../app';
+import { server } from '../app.ts';
 
 describe('Users API', () => {
   let userId: string;

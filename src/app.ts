@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import http from 'http';
-import { userRouter } from './routes/users';
-import { errorHandler, notFoundHandler } from './utils/handlers';
+import { userRouter } from './routes/users.ts';
+import { errorHandler, notFoundHandler } from './utils/handlers.ts';
 
 dotenv.config();
 

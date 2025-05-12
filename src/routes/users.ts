@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { v4 as uuidv4, validate as isUuid } from 'uuid';
-import { getUserById, getAllUsers, createUser, updateUser, deleteUser } from '../services/userService';
+import { getUserById, getAllUsers, createUser, updateUser, deleteUser } from '../services/userService.ts';
 
 function getRequestBody(req: IncomingMessage): Promise<string> {
   return new Promise((resolve, reject) => {
