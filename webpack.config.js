@@ -11,7 +11,12 @@ export default {
     rules: [
       {
         test: /\.ts$/,
-        use: "ts-loader",
+        use: {
+          loader: "ts-loader",
+          options: {
+            transpileOnly: true,
+          },
+        },
         exclude: /node_modules/,
       },
     ],
@@ -20,10 +25,15 @@ export default {
     extensions: [".ts", ".js"],
   },
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+  filename: "bundle.js",
+  path: path.resolve(__dirname, "dist"),
+  module: true,
+  environment: {
+    module: true,
   },
-  experiments: {
-    outputModule: true,
-  },
+},
+experiments: {
+  outputModule: true,
+},
+
 };
