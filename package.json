@@ -7,8 +7,12 @@
     },
     "type": "module",
     "scripts": {
-        "start": "node src/index.js"
-    },
+    "start:dev": "cross-env NODE_ENV=development ts-node-dev src/app.ts",
+    "build": "tsc",
+    "start:prod": "node dist/app.js",
+    "start:multi": "ts-node cluster/cluster.ts",
+    "test": "node tests/users.test.ts"
+},
     "main": "index.js",
     "keywords": [],
     "author": "VK",
