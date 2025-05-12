@@ -1,15 +1,16 @@
 import cluster from 'node:cluster';
 import os from 'node:os';
 import http from 'node:http';
-import { createServer } from './app.ts';
+import { createServer } from '../src/app.ts';
 
 const numCPUs = os.availableParallelism ? os.availableParallelism() : os.cpus().length;
 const basePort = parseInt(process.env.PORT || '4000', 10);
 
 if (cluster.isPrimary) {
   console.log(`Master process ${process.pid} is running`);
-  for (let i = 1; i < numCPUs; i++) {
-    cluster.fork({ PORT: (basePort + i).toString() });
+
+  for (let i = 0; i < numCPUs - 1; i++) {
+    cluster.fork({ PORT: (basePort + i + 1).toString() });
   }
 
   let current = 1;
@@ -37,7 +38,8 @@ if (cluster.isPrimary) {
   });
 
 } else {
-  createServer().listen(process.env.PORT, () =>
-    console.log(`Worker ${process.pid} listening on port ${process.env.PORT}`)
+  const workerPort = process.env.PORT || '4000';
+  createServer().listen(workerPort, () =>
+    console.log(`Worker ${process.pid} listening on port ${workerPort}`)
   );
 }

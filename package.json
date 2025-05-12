@@ -7,7 +7,7 @@
     },
     "type": "module",
     "scripts": {
-        "start:dev": "cross-env NODE_ENV=development node --loader ts-node/esm src/app.ts",
+        "start:dev": "cross-env NODE_ENV=development node --loader ts-node/esm cluster/cluster.ts",
         "build": "webpack",
         "start:prod": "node dist/bundle.js",
         "start:multi": "ts-node cluster/cluster.ts",
