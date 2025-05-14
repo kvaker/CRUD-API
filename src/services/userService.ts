@@ -1,21 +1,14 @@
 import { v4 as uuidv4, validate as isUuid } from 'uuid';
-
-interface User {
-  id: string;
-  username: string;
-  age: number;
-  hobbies: string[];
-}
-
-let users: User[] = [];
+import { db } from '../db/memoryDb.ts';
+import { User } from '../models/user.ts';
 
 export const getAllUsers = async (): Promise<User[]> => {
-  return users;
+  return db.getAll();
 };
 
 export const getUserById = async (id: string): Promise<User | null> => {
   if (!isUuid(id)) return null;
-  return users.find(user => user.id === id) || null;
+  return db.get(id) || null;
 };
 
 export const createUser = async (username: string, age: number, hobbies: string[]): Promise<User> => {
@@ -25,22 +18,24 @@ export const createUser = async (username: string, age: number, hobbies: string[
     age,
     hobbies
   };
-  users.push(newUser);
+  db.add(newUser);
   return newUser;
 };
 
 export const updateUser = async (id: string, username: string, age: number, hobbies: string[]): Promise<User | null> => {
-  const userIndex = users.findIndex(user => user.id === id);
-  if (userIndex === -1) return null;
+  if (!db.exists(id)) return null;
 
-  users[userIndex] = { id, username, age, hobbies };
-  return users[userIndex];
+  const updatedUser: User = {
+    id,
+    username,
+    age,
+    hobbies
+  };
+
+  db.update(id, updatedUser);
+  return updatedUser;
 };
 
 export const deleteUser = async (id: string): Promise<boolean> => {
-  const userIndex = users.findIndex(user => user.id === id);
-  if (userIndex === -1) return false;
-
-  users.splice(userIndex, 1);
-  return true;
+  return db.delete(id);
 };
