@@ -1,0 +1,56 @@
+[
+  {
+    "id": "28c59128-dac6-44a0-a451-602915d9c988",
+    "username": "Jane Doe",
+    "age": 28,
+    "hobbies": [
+      "hiking",
+      "music"
+    ]
+  },
+  {
+    "id": "72f3265a-54e6-4777-baa1-6cfd185903d9",
+    "username": "Jane Doe",
+    "age": 28,
+    "hobbies": [
+      "hiking",
+      "music"
+    ]
+  },
+  {
+    "id": "e416947d-02c8-44f2-812b-47f7b57e4836",
+    "username": "John",
+    "age": 28,
+    "hobbies": [
+      "books",
+      "cycling"
+    ]
+  },
+  {
+    "id": "2c1e2d36-826e-47bb-8a82-df63d5262c14",
+    "username": "Jane Doe",
+    "age": 28,
+    "hobbies": [
+      "hiking",
+      "music"
+    ]
+  },
+  {
+    "id": "3375a620-56f4-4c03-ba2d-457b9ead8284",
+    "username": "John",
+    "age": 28,
+    "hobbies": [
+      "books",
+      "cycling"
+    ]
+  },
+  {
+    "id": "c7a43b2d-394c-4c75-81dc-20c7c3ff1a05",
+    "username": "Jane Doe",
+    "age": 28,
+    "hobbies": [
+      "hiking",
+      "music"
+    ]
+  }
+]
